@@ -17,11 +17,11 @@ apt install -y git
 apt install -y xorg i3
 
 # Services
-sudo apt install network-manager
+sudo apt install -y network-manager
 sudo systemctl enable NetworkManager.service
 
 # Utilities
-apt install lm-sensors
+apt install -y lm-sensors
 
 # Terminal
 apt install -y gnome-terminal
