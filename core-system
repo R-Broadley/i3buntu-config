@@ -11,7 +11,7 @@ apt update
 apt upgrade -y
 
 # Tools
-apt install -y git
+apt install -y git software-properties-common
 
 # i3wm
 apt install -y compton i3 xorg
