@@ -21,7 +21,7 @@ sudo apt install -y network-manager
 sudo systemctl enable NetworkManager.service
 
 # Utilities
-apt install -y alsa-utils feh lm-sensors
+apt install -y alsa-utils feh lm-sensors pulseaudio
 
 # Terminal
 apt install -y gnome-terminal
