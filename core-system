@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Exit if not running as root
+if [[ ! $(whoami) = "root" ]]; then
+    echo "Please run the script as root."
+    exit 1
+fi
+
+# Installs
+apt update
+apt upgrade -y
+
+# Tools
+apt install -y git
+
+# i3wm
+apt install -y xorg i3
+
+# Services
+sudo apt install network-manager
+sudo systemctl enable NetworkManager.service
+
+# Utilities
+apt install lm-sensors
+
+# Terminal
+apt install -y gnome-terminal
+apt remove -y xterm
+
+# Themes
+apt install -y arc-theme breeze-cursor-theme
+add-apt-repository -y ppa:papirus/papirus
+apt update
+apt install -y papirus-icon-theme
+
+# Powerline
+apt install -y powerline 
+cat <<EOF>> /etc/bash.bashrc
+# Powerline
+if [ -f `which powerline-daemon` ]; then
+  powerline-daemon -q
+  POWERLINE_BASH_CONTINUATION=1
+  POWERLINE_BASH_SELECT=1
+  . /usr/share/powerline/bindings/bash/powerline.sh
+fi
+EOF
+
+# Fonts
+apt install -y fonts-ubuntu-font-family-console ttf-ubuntu-font-family
+apt install -y fonts-font-awesome
+
+# Applications
+apt install -y htop
+
+
+# Config Files / Set Defaults
+rsync -rlDu --chmod=D775,F664 etc/ /etc/
+rsync -rlDu --chmod=D775,F664 usr/ /usr/
+
+# Turn on firewall
+ufw enable
+

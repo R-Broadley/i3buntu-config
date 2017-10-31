@@ -1,0 +1,11 @@
+include "/usr/share/themes/Arc/gtk-2.0/gtkrc"
+
+style "user-font" {
+	font_name = "Ubuntu 11"
+}
+
+widget_class "*" style "user-font"
+
+gtk-font-name="Ubuntu 11"
+gtk-icon-theme-name = "Papirus-Dark"
+gtk-theme-name="Arc-Darker"
