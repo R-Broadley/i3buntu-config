@@ -14,14 +14,14 @@ apt upgrade -y
 apt install -y git
 
 # i3wm
-apt install -y xorg i3
+apt install -y compton i3 xorg
 
 # Services
 sudo apt install -y network-manager
 sudo systemctl enable NetworkManager.service
 
 # Utilities
-apt install -y lm-sensors
+apt install -y alsa-utils feh lm-sensors
 
 # Terminal
 apt install -y gnome-terminal
