@@ -11,8 +11,9 @@ apt update
 
 apt install -y eog evince firefox gedit nautilus
 
-if [ -f "/usr/share/applications/nautilus.desktop" ]; then 
-    echo "NoDisplay=true" >> "/usr/share/applications/nautilus.desktop"
+# If nautilus.desktop exists prepend line NoDisplay=true (stop in showing)
+if [ -f "/usr/share/applications/nautilus.desktop" ]; then
+    sed -i "1s;^;NoDisplay=true\n;" /usr/share/applications/nautilus.desktop
 fi
 
 apt install -y network-manager-gnome
