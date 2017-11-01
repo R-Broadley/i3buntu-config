@@ -16,4 +16,12 @@ apt install -y flac lame vorbis-tools wavpack
 apt install -y clementine pavucontrol picard
 
 # Rubyripper
-# Codecs
+apt install -y cdparanoia ruby
+apt install -y cd-discid cdrdao libcdio-utils libgtk2.0-dev sox vorbisgain
+gem install rake gtk2 gettext
+sudo -u $(logname) git clone https://github.com/bleskodev/rubyripper.git ../rubyripper
+cwd=$(pwd)
+cd ../rubyripper
+sudo -u $(logname) ./configure --enable-lang-all --enable-gtk2 --enable-cli --prefix=/usr
+make install
+cd $cwd
