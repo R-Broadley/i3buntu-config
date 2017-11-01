@@ -9,6 +9,10 @@ fi
 # Installs
 apt update
 
+# Codecs
+apt install -y flac lame vorbis-tools wavpack
+
+# Key applications
 apt install -y clementine pavucontrol picard
 
 # Rubyripper
